@@ -5,18 +5,18 @@ Static frontend prototype for Mixology AI.
 ## Project structure
 
 - `src/` - source files (HTML templates, SCSS, assets)
-- `dist/` - deploy-ready static pages and compiled CSS
+- `docs/` - deploy-ready static pages and compiled CSS
 
 ## SCSS compile
 
 ```bash
-npx sass src/scss/main.scss dist/css/main.css
+npx sass src/scss/main.scss:docs/css/main.css
 ```
 
 Watch mode:
 
 ```bash
-npx sass --watch src/scss/main.scss:dist/css/main.css
+npx sass --watch src/scss/main.scss:docs/css/main.css
 ```
 
 ## Pages in dist
