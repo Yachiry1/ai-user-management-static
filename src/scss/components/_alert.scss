@@ -1,0 +1,43 @@
+@use '../utils/colors' as *;
+
+@keyframes alert-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert {
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  padding: 0.65rem 0.85rem;
+  animation: alert-slide 0.22s ease;
+}
+
+.alert + .alert {
+  margin-top: 0.5rem;
+}
+
+.alert-error {
+  border-color: #f0a3ab;
+  background: #fde8ea;
+  color: $danger;
+}
+
+.alert-success {
+  border-color: #8ac7a7;
+  background: #e7f7ee;
+  color: $success;
+}
+
+.alert-warning {
+  border-color: #f2ce7f;
+  background: #fff6e0;
+  color: $warning;
+}
+

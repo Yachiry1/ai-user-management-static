@@ -1,0 +1,36 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.cocktail-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cocktail-card {
+  border: 1px solid $border;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.cocktail-card img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.cocktail-card article {
+  padding: 0.8rem;
+}
+
+@include for-md {
+  .cocktail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include for-lg {
+  .cocktail-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+

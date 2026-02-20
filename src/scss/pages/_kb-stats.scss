@@ -1,0 +1,26 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.kb-stats {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.stat-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.stat-card {
+  border: 1px solid $border;
+  border-radius: 0.65rem;
+  padding: 0.9rem;
+  background: #ffffff;
+}
+
+@include for-md {
+  .stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+

@@ -1,0 +1,43 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.btn {
+  @include button-base($surface, $text);
+  border-color: $border;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(31, 39, 45, 0.15);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  @include button-base($primary, #ffffff);
+}
+
+.btn-secondary {
+  @include button-base($secondary, #ffffff);
+}
+
+.btn-danger {
+  @include button-base($danger, #ffffff);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+
+button:hover {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+

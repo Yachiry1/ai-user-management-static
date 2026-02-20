@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Edit Cocktail</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <h1>Edit Cocktail</h1>
+      <p>Recipe editor mockup.</p>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <ul>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="cocktails.html">Cocktails</a></li>
+    <li><a href="ask-ai.html">Ask AI</a></li>
+    <li><a href="kb-stats.html">KB Stats</a></li>
+    <li><a href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+    <main class="site-main">
+      <section class="panel stack" aria-labelledby="edit-cocktail-title">
+        <article>
+          <h2 id="edit-cocktail-title">Edit recipe: Negroni</h2>
+        </article>
+        <article>
+          <form class="form-card" action="#" method="post">
+            <div class="form-field">
+              <label for="cocktail-name">Cocktail name</label>
+              <input id="cocktail-name" type="text" value="Negroni" />
+            </div>
+            <div class="form-field">
+              <label for="cocktail-image">Image URL</label>
+              <input id="cocktail-image" type="url" value="assets/img/cocktail-placeholder.svg" />
+            </div>
+            <div class="form-field">
+              <label for="cocktail-ingredients">Ingredients</label>
+              <textarea id="cocktail-ingredients" rows="5">30 ml gin&#10;30 ml Campari&#10;30 ml sweet vermouth</textarea>
+            </div>
+            <div class="form-field">
+              <label for="cocktail-instructions">Instructions</label>
+              <textarea id="cocktail-instructions" rows="5">Stir with ice and strain into a rocks glass.</textarea>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Save recipe</button>
+              <a class="btn" href="cocktail-details.html">Cancel</a>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>Lab 1 static UI mockup.</small>
+    </footer>
+  </div>
+</body>
+</html>

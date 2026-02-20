@@ -1,0 +1,19 @@
+@use '../utils/colors' as *;
+
+.ask-ai {
+  display: grid;
+  gap: 1rem;
+}
+
+.source-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.source-item {
+  border: 1px solid $border;
+  border-radius: 0.6rem;
+  padding: 0.7rem;
+  background: #ffffff;
+}
+

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Users</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <h1>Users</h1>
+      <p>User listing with role and management actions.</p>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <ul>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="cocktails.html">Cocktails</a></li>
+    <li><a href="ask-ai.html">Ask AI</a></li>
+    <li><a href="kb-stats.html">KB Stats</a></li>
+    <li><a href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+    <main class="site-main">
+      <section class="panel user-list stack" aria-labelledby="users-title">
+        <article>
+          <h2 id="users-title">User listing</h2>
+          <div class="actions">
+            <button class="btn btn-primary" type="button">Open Create User Modal</button>
+            <a class="btn" href="user-details.html">Open User Details</a>
+          </div>
+        </article>
+
+        <article>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bar-admin</td>
+                <td><span class="role-badge">Admin</span></td>
+                <td>Active</td>
+                <td><a href="user-details.html">Details</a> | <a href="user-edit.html">Edit</a></td>
+              </tr>
+              <tr>
+                <td>mixology-guest</td>
+                <td><span class="role-badge">Regular</span></td>
+                <td>Pending</td>
+                <td><a href="user-details.html">Details</a> | <a href="user-edit.html">Edit</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="data-cards">
+            <article class="user-card">
+              <h3>bar-admin</h3>
+              <p><span class="role-badge">Admin</span></p>
+              <p>Status: Active</p>
+              <div class="actions">
+                <a class="btn" href="user-details.html">Details</a>
+                <a class="btn" href="user-edit.html">Edit</a>
+              </div>
+            </article>
+            <article class="user-card">
+              <h3>mixology-guest</h3>
+              <p><span class="role-badge">Regular</span></p>
+              <p>Status: Pending</p>
+              <div class="actions">
+                <a class="btn" href="user-details.html">Details</a>
+                <a class="btn" href="user-edit.html">Edit</a>
+              </div>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="modal is-open" role="dialog" aria-modal="true" aria-labelledby="create-user-title">
+        <article class="modal-content">
+          <h2 id="create-user-title">Create user</h2>
+          <form class="form-card" action="#" method="post">
+            <div class="form-field">
+              <label for="create-username">Username</label>
+              <input id="create-username" type="text" name="username" />
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="create-password">Password</label>
+                <input id="create-password" type="password" name="password" />
+              </div>
+              <div class="form-field">
+                <label for="create-confirm">Confirm Password</label>
+                <input id="create-confirm" type="password" name="confirm_password" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="create-role">Role</label>
+              <select id="create-role" name="role">
+                <option>Admin</option>
+                <option>Regular</option>
+              </select>
+            </div>
+            <div class="modal-actions">
+              <button class="btn btn-primary" type="submit">OK</button>
+              <button class="btn" type="button">Cancel</button>
+            </div>
+          </form>
+        </article>
+      </section>
+
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="delete-user-title">
+        <article class="modal-content">
+          <h2 id="delete-user-title">Delete user</h2>
+          <p>Are you sure you want to delete <strong>mixology-guest</strong>?</p>
+          <div class="modal-actions">
+            <button class="btn btn-danger" type="button">Delete</button>
+            <button class="btn" type="button">Cancel</button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>Lab 1 static UI mockup.</small>
+    </footer>
+  </div>
+</body>
+</html>

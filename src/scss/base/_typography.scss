@@ -1,0 +1,45 @@
+@use '../utils/colors' as *;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: $background;
+  color: $text;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: $primary;
+}
+
+a:active {
+  color: #8e4316;
+}
+
+a:visited {
+  color: #4f5d69;
+}
+
+small {
+  color: $muted;
+}
+

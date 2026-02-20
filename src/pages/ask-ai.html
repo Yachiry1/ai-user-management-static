@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Ask AI</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <h1>Ask AI</h1>
+      <p>RAG response layout mockup (static).</p>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <ul>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="cocktails.html">Cocktails</a></li>
+    <li><a href="ask-ai.html">Ask AI</a></li>
+    <li><a href="kb-stats.html">KB Stats</a></li>
+    <li><a href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+    <main class="site-main">
+      <section class="panel ask-ai" aria-labelledby="ask-title">
+        <article>
+          <h2 id="ask-title">Question input</h2>
+          <form class="form-card" action="#" method="post">
+            <div class="form-field">
+              <label for="ai-question">Ask about a cocktail technique</label>
+              <textarea id="ai-question" rows="4" placeholder="How should I balance citrus in a shaken cocktail?"></textarea>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Ask AI</button>
+            </div>
+          </form>
+        </article>
+        <article>
+          <h3>Retrieved sources</h3>
+          <div class="source-list">
+            <article class="source-item">
+              <h4>Source #1 - Classic sour ratio guide</h4>
+              <p>Confidence: High. Relevance score: 0.91.</p>
+            </article>
+            <article class="source-item">
+              <h4>Source #2 - Citrus dilution notes</h4>
+              <p>Confidence: Medium. Relevance score: 0.78.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>Lab 1 static UI mockup.</small>
+    </footer>
+  </div>
+</body>
+</html>

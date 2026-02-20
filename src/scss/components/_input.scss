@@ -1,0 +1,58 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.form-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
+  padding: 0.58rem 0.7rem;
+  background: #ffffff;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: $secondary;
+  box-shadow: 0 0 0 3px rgba(45, 106, 115, 0.2);
+  outline: none;
+}
+
+.form-field.has-error input,
+.form-field.has-error select,
+.form-field.has-error textarea {
+  border-color: $danger;
+}
+
+.field-error {
+  color: $danger;
+  font-size: 0.82rem;
+}
+
+@include for-md {
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Login</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <h1>Mixology AI Admin</h1>
+      <p>Sign in to manage users and cocktails.</p>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <ul>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="cocktails.html">Cocktails</a></li>
+    <li><a href="ask-ai.html">Ask AI</a></li>
+    <li><a href="kb-stats.html">KB Stats</a></li>
+    <li><a href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+    <main class="site-main">
+      <section class="panel login-page stack" aria-labelledby="login-title">
+        <article>
+          <h2 id="login-title">Login</h2>
+          <p>Use your admin credentials to access the panel.</p>
+        </article>
+        <article>
+          <div class="alert alert-error" role="alert">Invalid username or password.</div>
+          <form class="form-card" action="#" method="post">
+            <div class="form-field has-error">
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="admin" />
+              <p class="field-error">Username is required.</p>
+            </div>
+            <div class="form-field has-error">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="********" />
+              <p class="field-error">Password must be at least 8 characters.</p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Sign in</button>
+              <button class="btn" type="reset">Clear</button>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>Lab 1 static UI mockup.</small>
+    </footer>
+  </div>
+</body>
+</html>

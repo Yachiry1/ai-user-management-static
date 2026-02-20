@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Edit User</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <h1>Edit User</h1>
+      <p>Edit account data and role.</p>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <ul>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="cocktails.html">Cocktails</a></li>
+    <li><a href="ask-ai.html">Ask AI</a></li>
+    <li><a href="kb-stats.html">KB Stats</a></li>
+    <li><a href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+    <main class="site-main">
+      <section class="panel user-edit stack" aria-labelledby="edit-user-title">
+        <article>
+          <h2 id="edit-user-title">Edit bar-admin</h2>
+          <div class="alert alert-warning" role="alert">Validation errors are shown below for demo.</div>
+          <div class="alert alert-error" role="alert">Could not save changes: password confirmation does not match.</div>
+        </article>
+        <article>
+          <form class="form-card" action="#" method="post">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="edit-username">Username</label>
+                <input id="edit-username" type="text" value="bar-admin" />
+              </div>
+              <div class="form-field has-error">
+                <label for="edit-email">Email</label>
+                <input id="edit-email" type="email" value="bar-admin@mixology" />
+                <p class="field-error">Please enter a valid email address.</p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field has-error">
+                <label for="edit-password">Password</label>
+                <input id="edit-password" type="password" value="123456" />
+                <p class="field-error">Password must be at least 8 characters.</p>
+              </div>
+              <div class="form-field has-error">
+                <label for="edit-confirm">Confirm Password</label>
+                <input id="edit-confirm" type="password" value="1234" />
+                <p class="field-error">Passwords do not match.</p>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="edit-role">Role</label>
+              <select id="edit-role">
+                <option selected>Admin</option>
+                <option>Regular</option>
+              </select>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Save</button>
+              <a class="btn" href="user-details.html">Cancel</a>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>Lab 1 static UI mockup.</small>
+    </footer>
+  </div>
+</body>
+</html>
