@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixology AI | Lab 2 SPA</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="js/api.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell spa-shell">
+    <header class="site-header spa-header">
+      <h1>Mixology AI</h1>
+      <p>Bar team workspace</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul>
+        <li><button class="nav-link is-active" type="button" data-route="dashboard">Dashboard</button></li>
+        <li><button class="nav-link" type="button" data-route="users">Users</button></li>
+        <li><button class="nav-link" type="button" data-route="cocktails">Cocktails</button></li>
+        <li><button class="nav-link" type="button" data-route="ask">Ask AI</button></li>
+        <li><button class="nav-link" type="button" data-route="stats">Stats</button></li>
+        <li><button class="nav-link" type="button" data-route="login">Login</button></li>
+      </ul>
+    </nav>
+
+    <main class="site-main">
+      <div class="status-region" id="status-region" role="status" aria-live="polite" hidden></div>
+
+      <section class="view is-active" data-view="dashboard" aria-labelledby="dashboard-title">
+        <article class="panel stack">
+          <h2 id="dashboard-title">Dashboard</h2>
+          <div class="stat-grid" id="dashboard-metrics"></div>
+          <div class="dashboard-grid">
+            <article>
+              <h3>Recent users</h3>
+              <div class="data-cards" id="dashboard-users"></div>
+            </article>
+            <article>
+              <h3>Featured recipes</h3>
+              <div class="cocktail-grid compact-grid" id="dashboard-cocktails"></div>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" data-view="users" aria-labelledby="users-title" hidden>
+        <article class="panel user-list stack">
+          <div class="split-heading">
+            <div>
+              <h2 id="users-title">Users</h2>
+              <p>Accounts and role assignments</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-action="refresh-users">Refresh</button>
+          </div>
+
+          <form class="form-card inline-form" id="create-user-form">
+            <div class="form-field">
+              <label for="create-username">Username</label>
+              <input id="create-username" name="username" type="text" required />
+            </div>
+            <div class="form-field">
+              <label for="create-email">Email</label>
+              <input id="create-email" name="email" type="email" required />
+            </div>
+            <div class="form-field">
+              <label for="create-role">Role</label>
+              <select id="create-role" name="role">
+                <option>Admin</option>
+                <option>Regular</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+          </form>
+
+          <table class="data-table responsive-table">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body"></tbody>
+          </table>
+          <div class="data-cards" id="users-card-list"></div>
+        </article>
+      </section>
+
+      <section class="view" data-view="cocktails" aria-labelledby="cocktails-title" hidden>
+        <article class="panel stack">
+          <div class="split-heading">
+            <div>
+              <h2 id="cocktails-title">Cocktails</h2>
+              <p>Recipes from the knowledge base</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-action="refresh-cocktails">Refresh</button>
+          </div>
+          <div class="cocktail-grid" id="cocktail-list"></div>
+        </article>
+      </section>
+
+      <section class="view" data-view="ask" aria-labelledby="ask-title" hidden>
+        <article class="panel ask-ai">
+          <article>
+            <h2 id="ask-title">Ask AI</h2>
+            <form class="form-card" id="ask-form">
+              <div class="form-field">
+                <label for="ai-question">Question</label>
+                <textarea id="ai-question" name="question" rows="4" required>How should I balance citrus in a shaken cocktail?</textarea>
+              </div>
+              <div class="actions">
+                <button class="btn btn-primary" type="submit">Ask</button>
+              </div>
+            </form>
+          </article>
+          <article>
+            <h3>Answer</h3>
+            <div class="answer-box" id="ai-answer"></div>
+            <div class="source-list" id="ai-sources"></div>
+          </article>
+        </article>
+      </section>
+
+      <section class="view" data-view="stats" aria-labelledby="stats-title" hidden>
+        <article class="panel kb-stats">
+          <div class="split-heading">
+            <div>
+              <h2 id="stats-title">Knowledge Base Stats</h2>
+              <p>Indexing and retrieval health</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-action="refresh-stats">Refresh</button>
+          </div>
+          <div class="stat-grid" id="stats-list"></div>
+          <article>
+            <h3>Last sync</h3>
+            <p id="stats-sync"></p>
+          </article>
+        </article>
+      </section>
+
+      <section class="view" data-view="login" aria-labelledby="login-title" hidden>
+        <article class="panel login-panel">
+          <h2 id="login-title">Login</h2>
+          <form class="form-card" id="login-form">
+            <div class="form-field">
+              <label for="login-email">Email</label>
+              <input id="login-email" name="email" type="email" value="bar-admin@mixology.ai" required />
+            </div>
+            <div class="form-field">
+              <label for="login-password">Password</label>
+              <input id="login-password" name="password" type="password" value="mixology2026" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+          </form>
+          <p class="session-summary" id="session-summary"></p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>Lab 2 client-server SPA</small>
+    </footer>
+  </div>
+</body>
+</html>

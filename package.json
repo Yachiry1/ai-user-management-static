@@ -1,0 +1,23 @@
+{
+    "name": "mixology-ai-lab-2",
+    "version": "2.0.0",
+    "description": "Pure JavaScript SPA with REST JSON client-server interaction for Mixology AI.",
+    "main": "docs/index.html",
+    "scripts": {
+        "lint": "eslint **/*.js --ignore-pattern node_modules/",
+        "serve": "python -m http.server 4174 -d docs"
+    },
+    "keywords": [
+        "spa",
+        "ajax",
+        "fetch",
+        "rest"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.20.1"
+    }
+}

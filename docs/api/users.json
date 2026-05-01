@@ -1,0 +1,25 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "username": "bar-admin",
+            "email": "bar-admin@mixology.ai",
+            "role": "Admin",
+            "status": "Active"
+        },
+        {
+            "id": 2,
+            "username": "mixology-guest",
+            "email": "guest@mixology.ai",
+            "role": "Regular",
+            "status": "Pending"
+        },
+        {
+            "id": 3,
+            "username": "recipe-editor",
+            "email": "editor@mixology.ai",
+            "role": "Regular",
+            "status": "Active"
+        }
+    ]
+}

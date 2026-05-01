@@ -1,0 +1,6 @@
+{
+    "displayName": "Bar Admin",
+    "email": "bar-admin@mixology.ai",
+    "role": "Admin",
+    "tokenType": "Bearer"
+}

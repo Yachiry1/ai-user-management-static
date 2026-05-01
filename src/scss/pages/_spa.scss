@@ -1,0 +1,84 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.spa-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.nav-link {
+  width: 100%;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #f2f6f7;
+  color: $text;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  border-color: $primary;
+  background: #ffffff;
+  color: $primary;
+}
+
+.view[hidden],
+.status-region[hidden] {
+  display: none;
+}
+
+.status-region {
+  margin-bottom: 1rem;
+}
+
+.split-heading {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.compact-grid {
+  grid-template-columns: 1fr;
+}
+
+.inline-form {
+  align-items: end;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.responsive-table {
+  display: table;
+}
+
+.answer-box {
+  border: 1px solid $border;
+  border-radius: 0.5rem;
+  min-height: 5rem;
+  padding: 0.85rem;
+  background: #ffffff;
+}
+
+.session-summary {
+  margin-top: 0.9rem;
+}
+
+@include for-md {
+  .split-heading {
+    align-items: start;
+    grid-template-columns: 1fr auto;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .inline-form {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  }
+}
