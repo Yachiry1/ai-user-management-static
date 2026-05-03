@@ -5,13 +5,15 @@
     "main": "docs/index.html",
     "scripts": {
         "lint": "eslint **/*.js --ignore-pattern node_modules/",
-        "serve": "python -m http.server 4174 -d docs"
+        "serve": "python -m http.server 4174 -d docs",
+        "ws": "node server/ws-server.js"
     },
     "keywords": [
         "spa",
         "ajax",
         "fetch",
-        "rest"
+        "rest",
+        "websocket"
     ],
     "author": "",
     "license": "MIT",

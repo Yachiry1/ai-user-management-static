@@ -21,6 +21,7 @@
         <li><button class="nav-link" type="button" data-route="users">Users</button></li>
         <li><button class="nav-link" type="button" data-route="cocktails">Cocktails</button></li>
         <li><button class="nav-link" type="button" data-route="ask">Ask AI</button></li>
+        <li><button class="nav-link" type="button" data-route="live">Live Assistant</button></li>
         <li><button class="nav-link" type="button" data-route="stats">Stats</button></li>
         <li><button class="nav-link" type="button" data-route="login">Login</button></li>
       </ul>
@@ -122,6 +123,29 @@
             <div class="answer-box" id="ai-answer"></div>
             <div class="source-list" id="ai-sources"></div>
           </article>
+        </article>
+      </section>
+
+      <section class="view" data-view="live" aria-labelledby="live-title" hidden>
+        <article class="panel live-assistant">
+          <div class="split-heading">
+            <div>
+              <h2 id="live-title">Live Assistant</h2>
+              <p>WebSocket messaging exchange</p>
+            </div>
+            <button class="btn btn-secondary" type="button" data-action="connect-live">Connect</button>
+          </div>
+
+          <div class="live-status" id="live-status">Disconnected</div>
+          <div class="live-messages" id="live-messages" aria-live="polite"></div>
+
+          <form class="form-card live-form" id="live-form">
+            <div class="form-field">
+              <label for="live-message">Message</label>
+              <input id="live-message" name="message" type="text" value="Can you suggest a quick welcome drink?" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
         </article>
       </section>
 

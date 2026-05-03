@@ -572,6 +572,70 @@ button:hover {
   background: #ffffff;
 }
 
+.live-assistant {
+  display: grid;
+  gap: 1rem;
+}
+
+.live-status {
+  border: 1px solid #f2ce7f;
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  background: #fff6e0;
+  color: #d97706;
+  font-weight: 600;
+}
+
+.live-status.is-connected {
+  border-color: #8ac7a7;
+  background: #e7f7ee;
+  color: #2f855a;
+}
+
+.live-messages {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  min-height: 18rem;
+  max-height: 24rem;
+  overflow-y: auto;
+  border: 1px solid #d8d5cf;
+  border-radius: 0.6rem;
+  padding: 0.85rem;
+  background: #ffffff;
+}
+
+.live-message {
+  width: min(100%, 34rem);
+  border: 1px solid #d8d5cf;
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  background: #f2f6f7;
+}
+
+.live-message.is-own {
+  justify-self: end;
+  border-color: #b8d5d9;
+  background: #edf5f6;
+}
+
+.live-message p {
+  margin-bottom: 0;
+}
+
+.live-message-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+  color: #4f5d69;
+  font-size: 0.85rem;
+}
+
+.live-form {
+  align-items: end;
+}
+
 .session-summary {
   margin-top: 0.9rem;
 }
@@ -588,6 +652,10 @@ button:hover {
 
   .inline-form {
     grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  }
+
+  .live-form {
+    grid-template-columns: 1fr auto;
   }
 }
 

@@ -2,6 +2,8 @@
     const state = {
         cocktails: [],
         currentRoute: 'dashboard',
+        liveMessages: [],
+        liveSocket: null,
         stats: null,
         users: [],
     };
@@ -9,6 +11,7 @@
     const select = (selector, root = document) => root.querySelector(selector);
     const selectAll = (selector, root = document) => Array.from(root.querySelectorAll(selector));
     const api = () => window.MixologyApi;
+    const liveSocketUrl = window.MIXOLOGY_WS_URL || 'ws://localhost:8080';
 
     const clear = (element) => {
         while (element.firstChild) {
@@ -173,6 +176,84 @@
         });
     };
 
+    const setLiveStatus = (message, isConnected = false) => {
+        const status = select('#live-status');
+
+        status.textContent = message;
+        status.classList.toggle('is-connected', isConnected);
+    };
+
+    const renderLiveMessages = () => {
+        const list = select('#live-messages');
+
+        clear(list);
+        state.liveMessages.forEach((message) => {
+            const item = createElement('article', 'live-message');
+            const meta = createElement('p', 'live-message-meta');
+            const author = createElement('strong', '', message.author);
+            const time = createElement('span', '', message.sentAt);
+            const text = createElement('p', '', message.text);
+
+            item.classList.toggle('is-own', message.author === 'You');
+            meta.append(author, time);
+            item.append(meta, text);
+            list.append(item);
+        });
+        list.scrollTop = list.scrollHeight;
+    };
+
+    const addLiveMessage = (message) => {
+        state.liveMessages = state.liveMessages.concat(message);
+        renderLiveMessages();
+    };
+
+    const parseLivePayload = (data) => {
+        try {
+            return JSON.parse(data);
+        } catch (error) {
+            return {
+                author: 'Assistant',
+                text: data,
+            };
+        }
+    };
+
+    const connectLiveAssistant = () => {
+        if (!('WebSocket' in window)) {
+            setLiveStatus('WebSocket is not supported by this browser');
+            return;
+        }
+
+        if (state.liveSocket && state.liveSocket.readyState <= WebSocket.OPEN) {
+            return;
+        }
+
+        setLiveStatus('Connecting...');
+        state.liveSocket = new WebSocket(liveSocketUrl);
+
+        state.liveSocket.addEventListener('open', () => {
+            setLiveStatus(`Connected to ${liveSocketUrl}`, true);
+        });
+
+        state.liveSocket.addEventListener('message', (event) => {
+            const payload = parseLivePayload(event.data);
+
+            addLiveMessage({
+                author: payload.author || 'Assistant',
+                sentAt: payload.sentAt || new Date().toLocaleTimeString(),
+                text: payload.text || event.data,
+            });
+        });
+
+        state.liveSocket.addEventListener('close', () => {
+            setLiveStatus('Disconnected');
+        });
+
+        state.liveSocket.addEventListener('error', () => {
+            setLiveStatus('Connection error. Start the WebSocket server and reconnect.');
+        });
+    };
+
     const loadDashboard = async () => {
         setBusy(true);
         setStatus('Loading data...', 'warning');
@@ -268,6 +349,10 @@
         const route = getRouteFromHash();
 
         navigate(route);
+
+        if (route === 'live') {
+            connectLiveAssistant();
+        }
     };
 
     const handleNavigation = (event) => {
@@ -343,6 +428,37 @@
         }
     };
 
+    const handleLiveMessage = (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const text = formData.get('message').trim();
+
+        if (!text) {
+            return;
+        }
+
+        const message = {
+            author: 'Bar team',
+            sentAt: new Date().toLocaleTimeString(),
+            text,
+        };
+
+        addLiveMessage({
+            ...message,
+            author: 'You',
+        });
+
+        if (!state.liveSocket || state.liveSocket.readyState !== WebSocket.OPEN) {
+            setLiveStatus('Message is ready, but WebSocket is disconnected');
+            connectLiveAssistant();
+            return;
+        }
+
+        state.liveSocket.send(JSON.stringify(message));
+        event.target.reset();
+    };
+
     const handleActions = (event) => {
         const button = event.target.closest('[data-action]');
 
@@ -361,6 +477,10 @@
         if (button.dataset.action === 'refresh-stats') {
             loadStats();
         }
+
+        if (button.dataset.action === 'connect-live') {
+            connectLiveAssistant();
+        }
     };
 
     const bindEvents = () => {
@@ -368,6 +488,7 @@
         select('#create-user-form').addEventListener('submit', handleCreateUser);
         select('#ask-form').addEventListener('submit', handleAsk);
         select('#login-form').addEventListener('submit', handleLogin);
+        select('#live-form').addEventListener('submit', handleLiveMessage);
         document.addEventListener('click', handleActions);
         window.addEventListener('hashchange', handleRoute);
     };

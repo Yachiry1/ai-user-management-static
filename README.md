@@ -27,6 +27,20 @@ npm run serve
 The local demo uses JSON responses from `docs/api`. To connect a real back end, set
 `window.MIXOLOGY_API_BASE_URL` before loading `docs/js/api.js`.
 
+## WebSocket mini subproject
+
+The SPA also includes a `Live Assistant` screen with a real WebSocket messaging exchange.
+Run the static app and WebSocket server in two terminals:
+
+```bash
+npm run serve
+npm run ws
+```
+
+Open `http://localhost:4174/#live`. The browser connects to `ws://localhost:8080`,
+sends messages through the open socket, and receives assistant replies without refreshing
+the page. To use another WebSocket endpoint, set `window.MIXOLOGY_WS_URL`.
+
 Watch mode:
 
 ```bash
